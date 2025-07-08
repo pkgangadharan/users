@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: user-manager-backend
+    env: docker
+    repo: https://github.com/YOUR_USERNAME/multi_tenant_user_manager
+    dockerfilePath: backend/Dockerfile
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: default
+      - key: DB_URL
+        value: jdbc:h2:mem:default;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      - key: DB_USERNAME
+        value: sa
+      - key: DB_PASSWORD
+        value: ""
+
+  - type: web
+    name: user-manager-frontend
+    env: docker
+    repo: https://github.com/YOUR_USERNAME/multi_tenant_user_manager
+    dockerfilePath: frontend/Dockerfile
